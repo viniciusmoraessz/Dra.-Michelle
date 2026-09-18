@@ -73,7 +73,8 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 lg:py-32">
         <Reveal><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f06c53]">Pacientes felizes</p><h2 className="mt-4 text-4xl font-black text-[#163d66] sm:text-5xl">Sorrisos que contam histórias.</h2></Reveal>
-        <Reveal delay={0.1} className="mt-10">
+        <Reveal delay={0.1} className="mt-10 grid items-start gap-8 lg:grid-cols-2">
+          <div>
           <div className="relative mx-auto aspect-[9/16] max-w-[390px] overflow-hidden rounded-2xl bg-[#dceffc] shadow-xl shadow-[#0d72db]/10">
             <Image src="/patient-after.png" alt="Resultado depois do tratamento odontológico" fill className="object-contain" sizes="(max-width: 640px) 100vw, 390px" />
             <div className="absolute inset-0" style={{ clipPath: "inset(0 " + (100 - comparison) + "% 0 0)" }}>
@@ -87,6 +88,17 @@ export default function Home() {
             <input aria-label="Arraste para comparar antes e depois" className="absolute inset-0 z-10 h-full w-full cursor-ew-resize opacity-0" type="range" min="0" max="100" value={comparison} onChange={(event) => setComparison(Number(event.target.value))} />
           </div>
           <p className="mt-4 text-center text-sm font-medium text-[#5c7790]">Arraste para comparar o antes e o depois.</p>
+          </div>
+          <div className="mx-auto w-full max-w-[390px]">
+            <div className="relative aspect-[9/16] overflow-hidden rounded-2xl bg-[#123b67] shadow-xl shadow-[#0d72db]/10">
+              <video className="h-full w-full object-cover" controls playsInline preload="metadata">
+                <source src="/resultado-dentes.mp4" type="video/mp4" />
+                Seu navegador não suporta a reprodução de vídeo.
+              </video>
+              <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-white/90 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-[#0d72db]">Resultado em vídeo</span>
+            </div>
+            <p className="mt-4 text-center text-sm font-medium text-[#5c7790]">Veja o resultado em movimento.</p>
+          </div>
         </Reveal>
       </section>
 
