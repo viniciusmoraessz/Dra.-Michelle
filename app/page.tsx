@@ -24,6 +24,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [comparison, setComparison] = useState(50);
 
   return (
     <main className="overflow-x-hidden bg-[#fbfdfd] text-[#15355b]">
@@ -70,7 +71,24 @@ export default function Home() {
 
       <section id="tratamentos" className="bg-[#123b67] py-24 text-white lg:py-32"><div className="mx-auto max-w-7xl px-5 md:px-8"><Reveal className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#7ed0ff]">Especialidades</p><h2 className="mt-4 text-4xl font-black sm:text-5xl">Seu sorriso, em boas mãos.</h2></div><p className="max-w-sm text-blue-100">Protocolos individualizados para que cada decisão faça sentido para você.</p></Reveal><div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-white/15 md:grid-cols-2">{treatments.map(([number, title, text], i) => <Reveal key={title} delay={i * 0.06} className="bg-[#123b67] p-7 transition hover:bg-[#174a7d] sm:p-9"><div className="flex items-start justify-between"><span className="text-sm font-bold text-[#7ed0ff]">{number}</span><ArrowRight className="text-[#f98b74]" /></div><h3 className="mt-12 text-2xl font-bold">{title}</h3><p className="mt-3 max-w-sm leading-relaxed text-blue-100">{text}</p></Reveal>)}</div></div></section>
 
-      <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 lg:py-32"><Reveal><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f06c53]">Pacientes felizes</p><h2 className="mt-4 text-4xl font-black text-[#163d66] sm:text-5xl">Sorrisos que contam histórias.</h2></Reveal><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{["Retratos com pacientes", "Resultados que respeitam você", "Tecnologia a serviço do sorriso", "Cuidado em cada detalhe"].map((item, i) => <Reveal key={item} delay={i * 0.05} className="relative min-h-72 overflow-hidden rounded-2xl bg-[#dceffc]"><div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_25%,rgba(255,255,255,.78),transparent_20%),linear-gradient(160deg,transparent_0%,rgba(13,114,219,.16)_100%)]" /><div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-[#0d72db]">Estética do sorriso</div><div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#123b67]/80 to-transparent p-5 pt-16 text-sm font-bold text-white">{item}<br /><span className="text-xs font-normal text-white/75">Espaço para foto real</span></div></Reveal>)}</div></section>
+      <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 lg:py-32">
+        <Reveal><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f06c53]">Pacientes felizes</p><h2 className="mt-4 text-4xl font-black text-[#163d66] sm:text-5xl">Sorrisos que contam histórias.</h2></Reveal>
+        <Reveal delay={0.1} className="mt-10">
+          <div className="relative mx-auto aspect-[4/5] max-w-xl overflow-hidden rounded-2xl bg-[#dceffc] shadow-xl shadow-[#0d72db]/10 sm:aspect-[16/10]">
+            <Image src="/patient-after.png" alt="Resultado depois do tratamento odontológico" fill className="object-cover object-[center_30%]" sizes="(max-width: 640px) 100vw, 600px" />
+            <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: comparison + "%" }}>
+              <div className="relative h-full w-[600px] max-w-none sm:w-[640px]"><Image src="/patient-before.png" alt="Antes do tratamento odontológico" fill className="object-cover object-[center_30%]" sizes="(max-width: 640px) 100vw, 600px" /></div>
+            </div>
+            <div className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-[0_0_0_1px_rgba(21,53,91,.18)]" style={{ left: comparison + "%" }}>
+              <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white bg-[#0d72db] text-xs font-black text-white">↔</span>
+            </div>
+            <span className="absolute left-4 top-4 rounded-full bg-[#123b67]/85 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-white">Antes</span>
+            <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-[#0d72db]">Depois</span>
+            <input aria-label="Arraste para comparar antes e depois" className="absolute inset-0 z-10 h-full w-full cursor-ew-resize opacity-0" type="range" min="0" max="100" value={comparison} onChange={(event) => setComparison(Number(event.target.value))} />
+          </div>
+          <p className="mt-4 text-center text-sm font-medium text-[#5c7790]">Arraste para comparar o antes e o depois.</p>
+        </Reveal>
+      </section>
 
       <section className="bg-[#fff6f2] py-24 lg:py-32"><div className="mx-auto max-w-4xl px-5 text-center md:px-8"><Reveal><Quote className="mx-auto text-[#f06c53]" size={35} fill="currentColor" /><blockquote className="mt-7 text-3xl font-black leading-tight text-[#163d66] sm:text-5xl">“O primeiro passo é entender que seu sorriso pode ser cuidado com calma, tecnologia e verdade.”</blockquote><p className="mt-7 text-sm font-bold text-[#f06c53]">DEPOIMENTOS REAIS EM BREVE</p></Reveal></div></section>
 
