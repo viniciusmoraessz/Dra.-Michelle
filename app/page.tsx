@@ -74,10 +74,10 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 lg:py-32">
         <Reveal><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f06c53]">Pacientes felizes</p><h2 className="mt-4 text-4xl font-black text-[#163d66] sm:text-5xl">Sorrisos que contam histórias.</h2></Reveal>
         <Reveal delay={0.1} className="mt-10">
-          <div className="relative mx-auto aspect-[4/5] max-w-xl overflow-hidden rounded-2xl bg-[#dceffc] shadow-xl shadow-[#0d72db]/10 sm:aspect-[16/10]">
-            <Image src="/patient-after.png" alt="Resultado depois do tratamento odontológico" fill className="object-cover object-[center_30%]" sizes="(max-width: 640px) 100vw, 600px" />
-            <div className="absolute inset-y-0 left-0 overflow-hidden" style={{ width: comparison + "%" }}>
-              <div className="relative h-full w-[600px] max-w-none sm:w-[640px]"><Image src="/patient-before.png" alt="Antes do tratamento odontológico" fill className="object-cover object-[center_30%]" sizes="(max-width: 640px) 100vw, 600px" /></div>
+          <div className="relative mx-auto aspect-[9/16] max-w-[390px] overflow-hidden rounded-2xl bg-[#dceffc] shadow-xl shadow-[#0d72db]/10">
+            <Image src="/patient-after.png" alt="Resultado depois do tratamento odontológico" fill className="object-contain" sizes="(max-width: 640px) 100vw, 390px" />
+            <div className="absolute inset-0" style={{ clipPath: "inset(0 " + (100 - comparison) + "% 0 0)" }}>
+              <Image src="/patient-before.png" alt="Antes do tratamento odontológico" fill className="object-contain" sizes="(max-width: 640px) 100vw, 390px" />
             </div>
             <div className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-[0_0_0_1px_rgba(21,53,91,.18)]" style={{ left: comparison + "%" }}>
               <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white bg-[#0d72db] text-xs font-black text-white">↔</span>
