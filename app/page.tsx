@@ -11,8 +11,7 @@ import { type FormEvent, useState } from "react";
 const instagram = "https://www.instagram.com/dra_michelle.ribeiro/";
 const whatsapp = "https://wa.me/5598970205892?text=Ol%C3%A1%2C%20Dra.%20Michelle!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
 const directions = "https://www.google.com/maps/dir/?api=1&destination=Edif%C3%ADcio%20Tech%20Office%2C%20Av.%20dos%20Holandeses%2C%2006%2C%20Ponta%20D%27areia%2C%20S%C3%A3o%20Lu%C3%ADs%2C%20MA";
-// Substitua o valor depois de pb= pelo código gerado em Google Maps > Compartilhar > Incorporar mapa.
-const googleMapsEmbed = "https://www.google.com/maps/embed?pb=SUBSTITUA_PELO_CODIGO_OFICIAL_DO_GOOGLE_MAPS";
+const googleMapsEmbed = "https://www.google.com/maps?q=Edif%C3%ADcio%20Tech%20Office%2C%20Av.%20dos%20Holandeses%2C%2006%2C%20Ponta%20D%27areia%2C%20S%C3%A3o%20Lu%C3%ADs%2C%20MA&z=17&output=embed";
 
 const treatments: [string, string, string, LucideIcon][] = [
   ["01", "Implantodontia", "Planejamento seguro para devolver função, conforto e confiança ao sorrir.", CirclePlus],
@@ -106,7 +105,7 @@ export default function Home() {
           </div>
           <div className="mx-auto w-full max-w-[390px]">
             <div className="relative aspect-[9/16] overflow-hidden rounded-2xl bg-[#123b67] shadow-xl shadow-[#0d72db]/10">
-              <video className="h-full w-full object-cover" controls playsInline preload="none" poster="/patient-after.png">
+              <video className="h-full w-full object-cover" controls playsInline preload="metadata">
                 <source src="/resultado-dentes.mp4" type="video/mp4" />
                 Seu navegador não suporta a reprodução de vídeo.
               </video>
