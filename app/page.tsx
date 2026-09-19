@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ArrowRight, MapPin, Menu, MessageCircle, Navigation,
-  Phone, Sparkles, Star, Stethoscope, Sun, X, type LucideIcon
+  CirclePlus, Droplet, Layers, MapPin, Menu, MessageCircle, Navigation, Smile,
+  Phone, Sparkles, Star, Stethoscope, X, type LucideIcon
 } from "lucide-react";
 import { type FormEvent, useState } from "react";
 
@@ -15,10 +15,10 @@ const directions = "https://www.google.com/maps/dir/?api=1&destination=Edif%C3%A
 const googleMapsEmbed = "https://www.google.com/maps/embed?pb=SUBSTITUA_PELO_CODIGO_OFICIAL_DO_GOOGLE_MAPS";
 
 const treatments: [string, string, string, LucideIcon][] = [
-  ["01", "Implantodontia", "Planejamento seguro para devolver função, conforto e confiança ao sorrir.", Stethoscope],
-  ["02", "Estética do sorriso", "Harmonia, naturalidade e detalhes que fazem o sorriso ter a sua identidade.", Sparkles],
-  ["03", "Clareamento dental", "Protocolos personalizados para revelar luminosidade com cuidado.", Sun],
-  ["04", "Lentes de contato", "Transformações sutis para um resultado elegante e duradouro.", Star],
+  ["01", "Implantodontia", "Planejamento seguro para devolver função, conforto e confiança ao sorrir.", CirclePlus],
+  ["02", "Estética do sorriso", "Harmonia, naturalidade e detalhes que fazem o sorriso ter a sua identidade.", Smile],
+  ["03", "Clareamento dental", "Protocolos personalizados para revelar luminosidade com cuidado.", Droplet],
+  ["04", "Lentes de contato", "Transformações sutis para um resultado elegante e duradouro.", Layers],
 ];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -84,7 +84,7 @@ export default function Home() {
         <Reveal delay={0.1}><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f06c53]">Conheça a Dra. Michelle</p><h2 className="mt-4 max-w-xl text-4xl font-black leading-tight text-[#163d66] sm:text-5xl">Técnica precisa. Cuidado que se sente.</h2><p className="mt-6 max-w-xl text-lg leading-relaxed text-[#58728e]">Cada tratamento começa com escuta e planejamento. A Dra. Michelle atua com uma odontologia que valoriza saúde, naturalidade e a confiança de quem escolhe voltar a sorrir.</p><div className="mt-8 grid gap-4 sm:grid-cols-2"><Credential title="Formação contínua" text="Mestranda e doutoranda pela São Leopoldo Mandic." /><Credential title="Especialização" text="Implantodontia pelo IOA." /></div></Reveal>
       </section>
 
-      <section id="tratamentos" className="bg-[#123b67] py-24 text-white lg:py-32"><div className="mx-auto max-w-7xl px-5 md:px-8"><Reveal className="grid gap-8 lg:grid-cols-[1fr_.65fr] lg:items-end"><div><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#7ed0ff]">Especialidades</p><h2 className="mt-4 max-w-2xl text-4xl font-black leading-tight sm:text-6xl">Tratamentos.</h2></div><p className="border-l-2 border-[#f06c53] pl-5 text-lg leading-relaxed text-blue-100">Da reabilitação à estética, cada escolha é guiada por diagnóstico, previsibilidade e um plano que respeita você.</p></Reveal><div className="mt-14 grid gap-4 md:grid-cols-2">{treatments.map(([number, title, text, Icon], i) => <Reveal key={title} delay={i * 0.06} className="group relative min-h-64 overflow-hidden rounded-2xl border border-white/15 bg-white/[.07] p-7 transition hover:-translate-y-1 hover:bg-white/[.12] sm:p-9"><div className="flex items-start justify-between"><span className="text-sm font-black tracking-[.16em] text-[#7ed0ff]">{number}</span><span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-[#7ed0ff]"><Icon size={21} /></span></div><ArrowRight className="absolute bottom-8 right-8 text-[#f98b74] transition group-hover:translate-x-1" /><h3 className="mt-10 text-2xl font-black">{title}</h3><p className="mt-3 max-w-sm leading-relaxed text-blue-100">{text}</p><div className="absolute bottom-0 left-0 h-1 w-16 bg-[#f06c53]" /></Reveal>)}</div></div></section>
+      <section id="tratamentos" className="bg-[#123b67] py-24 text-white lg:py-32"><div className="mx-auto max-w-7xl px-5 md:px-8"><Reveal className="grid gap-8 lg:grid-cols-[1fr_.65fr] lg:items-end"><div><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#7ed0ff]">Especialidades</p><h2 className="mt-4 max-w-2xl text-4xl font-black leading-tight sm:text-6xl">Tratamentos.</h2></div><p className="border-l-2 border-[#f06c53] pl-5 text-lg leading-relaxed text-blue-100">Da reabilitação à estética, cada escolha é guiada por diagnóstico, previsibilidade e um plano que respeita você.</p></Reveal><div className="mt-14 grid gap-4 md:grid-cols-2">{treatments.map(([number, title, text, Icon], i) => <Reveal key={title} delay={i * 0.06} className="group relative min-h-[15.5rem] overflow-hidden rounded-2xl border border-white/15 bg-white/[.07] p-7 transition hover:-translate-y-1 hover:bg-white/[.12] sm:p-9"><div className="flex items-start justify-between"><span className="text-sm font-black tracking-[.16em] text-[#7ed0ff]">{number}</span><span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 text-[#7ed0ff]"><Icon size={21} /></span></div><h3 className="mt-10 text-2xl font-black">{title}</h3><p className="mt-3 max-w-sm leading-relaxed text-blue-100">{text}</p><div className="absolute bottom-0 left-0 h-1 w-full bg-[#7ed0ff]" /></Reveal>)}</div></div></section>
 
       <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 lg:py-32">
         <Reveal><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f06c53]">Pacientes felizes</p><h2 className="mt-4 text-4xl font-black text-[#163d66] sm:text-5xl">Um sorriso, uma história.</h2><p className="mt-4 max-w-xl text-lg text-[#58728e]">Veja um caso de estética do sorriso e o resultado em vídeo.</p></Reveal>
@@ -139,6 +139,9 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
 function InstagramIcon({ className = "" }: { className?: string }) {
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}><rect width="18" height="18" x="3" y="3" rx="5" ry="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none" /></svg>;
 }
+
+
+
 
 
 
