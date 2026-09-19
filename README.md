@@ -1,3 +1,14 @@
+# Dra. Michelle Ribeiro
+
+## Deploy na Vercel
+
+1. Envie a branch atual para o remoto GitHub configurado.
+2. Na Vercel, selecione Add New, Project e importe o repositório viniciusmoraessz/Dra.-Michelle.
+3. A Vercel detecta o framework Next.js automaticamente. Use npm run build como comando de build e npm install como comando de instalação.
+4. Clique em Deploy.
+
+Nenhuma variável de ambiente é necessária para a versão atual do site.
+
 # vinext-starter
 
 A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.
