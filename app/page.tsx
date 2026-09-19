@@ -33,10 +33,10 @@ export default function Home() {
   async function submitContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setFormStatus("sending");
-    const data = Object.fromEntries(new FormData(event.currentTarget));
+    const data = Object.fromEntries(new FormData(event.currentTarget)) as { name: string; phone: string; message: string };
     try {
-      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-      if (!response.ok) throw new Error();
+      const message = `Olá, Dra. Michelle!\n\nNome: ${data.name}\nTelefone: ${data.phone}\nMensagem: ${data.message}`;
+      window.open(`https://wa.me/5598970205892?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
       event.currentTarget.reset();
       setFormStatus("success");
     } catch { setFormStatus("error"); }
