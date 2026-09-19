@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Dentist", name: "Dra. Michelle Ribeiro da Silva", telephone: "+55 98 97020-5892", address: { "@type": "PostalAddress", streetAddress: "Edifício Tech Office - Av. dos Holandeses, 06", addressLocality: "São Luís", addressRegion: "MA", addressCountry: "BR" }, openingHours: "Mo-Fr by appointment" }) }} /></body>
     </html>
   );
 }
