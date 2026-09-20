@@ -6,7 +6,7 @@ import {
   CirclePlus, Droplet, Layers, MapPin, Menu, MessageCircle, Navigation, Smile,
   Phone, Sparkles, Star, Stethoscope, X, type LucideIcon
 } from "lucide-react";
-import { type FormEvent, useState } from "react";
+import { useState } from "react";
 
 const instagram = "https://www.instagram.com/dra_michelle.ribeiro/";
 const whatsapp = "https://wa.me/5598970205892?text=Ol%C3%A1%2C%20Dra.%20Michelle!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
@@ -27,20 +27,6 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [comparison, setComparison] = useState(50);
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
-  async function submitContact(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setFormStatus("sending");
-    const data = Object.fromEntries(new FormData(event.currentTarget)) as { name: string; phone: string; message: string };
-    try {
-      const message = `Olá, Dra. Michelle!\n\nNome: ${data.name}\nTelefone: ${data.phone}\nMensagem: ${data.message}`;
-      window.open(`https://wa.me/5598970205892?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
-      event.currentTarget.reset();
-      setFormStatus("success");
-    } catch { setFormStatus("error"); }
-  }
-
   return (
     <main className="overflow-x-hidden bg-[#fbfdfd] text-[#15355b]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-[#0d72db]/10 bg-white/85 backdrop-blur-xl">
@@ -50,11 +36,11 @@ export default function Home() {
             <span className="leading-tight"><b className="block text-[15px]">Dra. Michelle</b><span className="text-xs text-[#54708d]">Ribeiro da Silva</span></span>
           </a>
           <nav className="hidden items-center gap-7 text-sm font-medium text-[#38536e] lg:flex">
-            <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#tratamentos">Tratamentos</a><a href="#localizacao">Localização</a><a href="#contato">Contato</a>
+            <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#tratamentos">Tratamentos</a><a href="#localizacao">Localização</a>
           </nav>
           <button className="grid h-10 w-10 place-items-center rounded-full bg-[#eaf5ff] text-[#0d72db] lg:hidden" aria-label="Abrir menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={20} /> : <Menu size={20} />}</button>
         </div>
-        {menuOpen && <nav className="border-t border-[#0d72db]/10 bg-white px-5 py-5 lg:hidden"><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#inicio" onClick={() => setMenuOpen(false)}>Início</a><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#tratamentos" onClick={() => setMenuOpen(false)}>Tratamentos</a><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#localizacao" onClick={() => setMenuOpen(false)}>Localização</a><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#contato" onClick={() => setMenuOpen(false)}>Contato</a></nav>}
+        {menuOpen && <nav className="border-t border-[#0d72db]/10 bg-white px-5 py-5 lg:hidden"><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#inicio" onClick={() => setMenuOpen(false)}>Início</a><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#tratamentos" onClick={() => setMenuOpen(false)}>Tratamentos</a><a className="block rounded py-3 focus-visible:ring-2 focus-visible:ring-[#0d72db]" href="#localizacao" onClick={() => setMenuOpen(false)}>Localização</a></nav>}
       </header>
 
       <section id="inicio" className="relative isolate min-h-[800px] overflow-hidden bg-[#eaf6ff] pt-[76px]">
@@ -118,7 +104,6 @@ export default function Home() {
 
       <section id="localizacao" className="mx-auto grid max-w-7xl gap-10 px-5 py-24 md:px-8 lg:grid-cols-[.9fr_1.1fr] lg:py-32"><Reveal><p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f06c53]">Localização</p><h2 className="mt-4 text-4xl font-black text-[#163d66] sm:text-5xl">Um espaço para cuidar de você.</h2><p className="mt-5 max-w-md text-lg leading-relaxed text-[#58728e]">Atendimento no Edifício Tech Office, em um ambiente confortável e preparado para cada etapa do seu tratamento.</p><div className="mt-8 space-y-5"><Contact icon={<MapPin />} title="Consultório" text="Edifício Tech Office - Sala 421, Av. dos Holandeses, 06 - Ponta D'areia" /><Contact icon={<Stethoscope />} title="Atendimento" text="Segunda a sexta, com horário agendado" /><Contact icon={<Phone />} title="WhatsApp" text="+55 98 97020-5892" /></div><a href={directions} target="_blank" rel="noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#0d72db] px-5 py-3 text-sm font-bold text-[#0d72db] transition hover:bg-[#eaf6ff]"><Navigation size={18} /> Como chegar</a></Reveal><Reveal delay={0.1} className="relative h-[400px] overflow-hidden rounded-2xl bg-[#d8ecf8]"><iframe title="Mapa do Edifício Tech Office, consultório da Dra. Michelle Ribeiro em Ponta D'areia" className="absolute inset-0 h-[400px] w-full border-0" loading="lazy" src={googleMapsEmbed} /><div className="pointer-events-none absolute bottom-5 left-5 rounded-xl bg-white/95 p-4 shadow-lg"><p className="font-bold text-[#163d66]">Edifício Tech Office</p><p className="mt-1 text-sm text-[#54708d]">Ponta D&apos;areia · Sala 421</p></div></Reveal></section>
 
-      <section id="contato" className="mx-5 mb-5 overflow-hidden rounded-[2rem] bg-[#0d72db] px-6 py-16 text-white md:mx-8 md:px-12 lg:mx-auto lg:max-w-7xl lg:px-20 lg:py-20"><Reveal className="relative"><div className="absolute -right-20 -top-28 h-80 w-80 rounded-full border-[36px] border-white/10" /><p className="relative text-sm font-bold uppercase tracking-[0.16em] text-[#a8e0ff]">Sua avaliação começa aqui</p><div className="relative mt-5 grid gap-9 lg:grid-cols-[1fr_auto] lg:items-end"><div><h2 className="max-w-3xl text-4xl font-black leading-tight sm:text-6xl">O sorriso que você imagina pode começar com uma conversa.</h2><p className="mt-5 max-w-2xl text-lg leading-relaxed text-blue-100">Conte o que você deseja transformar. A Dra. Michelle vai orientar o próximo passo com atenção e clareza.</p></div><form onSubmit={submitContact} className="mt-8 max-w-md rounded-2xl bg-white p-5 text-[#163d66]"><p className="font-bold">Prefere formulário?</p><label className="mt-3 block text-sm">Nome<input required name="name" className="mt-1 w-full rounded-lg border p-2" /></label><label className="mt-3 block text-sm">Telefone<input required name="phone" type="tel" className="mt-1 w-full rounded-lg border p-2" /></label><label className="mt-3 block text-sm">Mensagem<textarea required name="message" rows={3} className="mt-1 w-full rounded-lg border p-2" /></label><button className="mt-4 rounded-full bg-[#123b67] px-5 py-3 font-bold text-white" disabled={formStatus === "sending"}>{formStatus === "sending" ? "Enviando..." : "Enviar mensagem"}</button>{formStatus === "success" && <p role="status" className="mt-3 text-sm text-green-700">Mensagem enviada.</p>}{formStatus === "error" && <p role="alert" className="mt-3 text-sm text-red-700">Não foi possível enviar. Use o WhatsApp.</p>}</form></div></Reveal></section>
 
       <footer className="mt-5 bg-[#123b67] text-white"><div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1.2fr_.8fr_.8fr] md:px-8"><div><p className="text-lg font-black">Dra. Michelle Ribeiro da Silva</p><p className="mt-1 text-sm leading-relaxed text-blue-100">Implantodontia e Estética do Sorriso</p></div><div><p className="text-xs font-bold uppercase tracking-[.14em] text-[#8ed6ff]">Atendimento</p><a href={whatsapp} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-3 text-sm font-bold transition hover:text-[#8ed6ff]"><span className="grid h-9 w-9 place-items-center rounded-full bg-[#25d366] text-white shadow-lg shadow-black/15"><WhatsAppIcon className="h-[18px] w-[18px]" /></span><span>+55 98 97020-5892</span></a><p className="mt-3 text-sm text-blue-100">Segunda a sexta, com horário agendado</p></div><div><p className="text-xs font-bold uppercase tracking-[.14em] text-[#8ed6ff]">Consultório</p><p className="mt-3 text-sm leading-relaxed text-blue-100">Edifício Tech Office<br />Av. dos Holandeses, 06 · Sala 421<br />Ponta D&apos;areia</p></div></div><div className="border-t border-white/15"><div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 text-xs text-blue-100 sm:flex-row sm:items-center sm:justify-between md:px-8"><p>© 2026 Dra. Michelle Ribeiro. Todos os direitos reservados.</p><a href="/politica-de-privacidade" className="font-bold text-white transition hover:text-[#8ed6ff]">Privacidade</a><a href={instagram} target="_blank" rel="noreferrer" aria-label="Instagram da Dra. Michelle Ribeiro" className="inline-flex items-center gap-2 font-bold text-white transition hover:text-[#f472b6]"><InstagramIcon className="h-4 w-4" /> @dra_michelle.ribeiro</a></div></div></footer>
       <a href={whatsapp} target="_blank" rel="noreferrer" aria-label="Falar com a Dra. Michelle Ribeiro pelo WhatsApp" className="fixed bottom-5 right-5 z-[60] inline-flex h-14 items-center justify-center gap-2 rounded-full bg-[#25d366] px-4 text-sm font-bold text-white shadow-xl shadow-[#123b67]/30 transition hover:scale-105 hover:bg-[#1fba58] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25d366]/30 sm:px-5"><WhatsAppIcon className="h-6 w-6" /><span className="hidden sm:inline">WhatsApp</span></a>
