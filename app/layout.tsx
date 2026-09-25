@@ -10,12 +10,19 @@ export const metadata: Metadata = {
     description: "Equipe especializada para o cuidado odontológico de toda a família em Niterói.",
     type: "website",
     locale: "pt_BR",
+    url: "https://dra-michelleribeiro.vercel.app",
     images: [{
-      url: "/og-image.png",
+      url: "https://dra-michelleribeiro.vercel.app/og-image.png",
       width: 1200,
       height: 630,
-      alt: "LB Odontologia, clínica odontológica em Niterói",
+      alt: "LB Odontologia, clínica odontológica especializada em Niterói",
     }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LB Odontologia | Cuidado especializado em Niterói",
+    description: "Equipe especializada para o cuidado odontológico de toda a família em Niterói.",
+    images: ["https://dra-michelleribeiro.vercel.app/og-image.png"],
   },
   other: {
     "codex-preview": "development",
@@ -33,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased">{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Dentist", name: "LB Odontologia", telephone: "+55 21 99377-0229", address: { "@type": "PostalAddress", streetAddress: "R. da Conceição, 125 - Sala 608", addressLocality: "Niterói", addressRegion: "RJ", postalCode: "24020-080", addressCountry: "BR" }, openingHours: "Mo-Fr by appointment" }) }} /></body>
+      <body className="antialiased">{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": ["Dentist", "LocalBusiness"], name: "LB Odontologia", description: "Clínica odontológica especializada para toda a família em Niterói.", url: "https://dra-michelleribeiro.vercel.app", telephone: "+55 21 99377-0229", sameAs: ["https://www.instagram.com/lb.odontologia_/"], address: { "@type": "PostalAddress", streetAddress: "R. da Conceição, 125 - Sala 608", addressLocality: "Niterói", addressRegion: "RJ", postalCode: "24020-080", addressCountry: "BR" }, medicalSpecialty: ["Orthodontics", "Pediatric", "Endodontics", "Cosmetic", "Implant"], openingHours: "Mo-Fr by appointment" }) }} /></body>
     </html>
   );
 }

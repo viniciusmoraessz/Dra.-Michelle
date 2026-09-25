@@ -1,6 +1,22 @@
 import Link from "next/link";
 
 export default function PrivacyPolicy() {
-  return <main className="min-h-screen bg-[#fbfdfd] px-5 py-16 text-[#15355b] md:px-8"><article className="mx-auto max-w-3xl"><Link href="/" className="text-sm font-bold text-[#0d72db] hover:underline">Voltar ao site</Link><p className="mt-10 text-sm font-bold uppercase tracking-[.16em] text-[#f06c53]">Privacidade</p><h1 className="mt-4 text-4xl font-black text-[#163d66] sm:text-5xl">Política de Privacidade</h1><p className="mt-6 leading-relaxed text-[#58728e]">Esta política explica como a LB Odontologia trata os dados enviados por este site, em conformidade com a Lei Geral de Proteção de Dados (LGPD).</p><section className="mt-10 space-y-6 leading-relaxed text-[#58728e]"><div><h2 className="text-xl font-black text-[#163d66]">Dados coletados</h2><p className="mt-2">No formulário de contato, podem ser solicitados nome, telefone e mensagem. Esses dados são fornecidos voluntariamente para retorno e agendamento.</p></div><div><h2 className="text-xl font-black text-[#163d66]">Finalidade e proteção</h2><p className="mt-2">As informações são usadas exclusivamente para atendimento, retorno de solicitações e organização da agenda. O site não vende dados pessoais.</p></div><div><h2 className="text-xl font-black text-[#163d66]">Compartilhamento e retenção</h2><p className="mt-2">Os dados podem ser encaminhados ao canal de atendimento configurado pela clínica e ficam armazenados apenas pelo período necessário para essa finalidade ou por obrigação legal.</p></div><div><h2 className="text-xl font-black text-[#163d66]">Seus direitos</h2><p className="mt-2">Você pode solicitar confirmação, correção ou exclusão dos seus dados pelo WhatsApp +55 87 99629-7429.</p></div><div><h2 className="text-xl font-black text-[#163d66]">Cookies</h2><p className="mt-2">Este site não utiliza analytics ou cookies de rastreamento. Caso essa tecnologia seja adicionada no futuro, esta política e o consentimento serão atualizados antes da ativação.</p></div></section><p className="mt-12 text-sm text-[#5c7790]">Última atualização: setembro de 2026.</p></article></main>;
+  return (
+    <main className="min-h-screen bg-[#fbfdfd] px-5 py-16 text-[#15355b] md:px-8">
+      <article className="mx-auto max-w-3xl">
+        <Link href="/" className="text-sm font-bold text-[#0d72db] hover:underline">Voltar ao site</Link>
+        <p className="mt-10 text-sm font-bold uppercase tracking-[.16em] text-[#f06c53]">Privacidade</p>
+        <h1 className="mt-4 text-4xl font-black text-[#163d66] sm:text-5xl">Política de Privacidade</h1>
+        <p className="mt-6 leading-relaxed text-[#58728e]">Esta política explica como a LB Odontologia trata os dados enviados por este site, em conformidade com a Lei Geral de Proteção de Dados (LGPD).</p>
+        <section className="mt-10 space-y-6 leading-relaxed text-[#58728e]">
+          <div><h2 className="text-xl font-black text-[#163d66]">Dados coletados</h2><p className="mt-2">No formulário de contato, podem ser solicitados nome, telefone e mensagem. Esses dados são fornecidos voluntariamente para retorno e agendamento.</p></div>
+          <div><h2 className="text-xl font-black text-[#163d66]">Finalidade e proteção</h2><p className="mt-2">As informações são usadas exclusivamente para atendimento, retorno de solicitações e organização da agenda. O site não vende dados pessoais.</p></div>
+          <div><h2 className="text-xl font-black text-[#163d66]">Compartilhamento e retenção</h2><p className="mt-2">Os dados podem ser encaminhados ao canal de atendimento configurado pela clínica e ficam armazenados apenas pelo período necessário para essa finalidade ou por obrigação legal.</p></div>
+          <div><h2 className="text-xl font-black text-[#163d66]">Seus direitos</h2><p className="mt-2">Você pode solicitar confirmação, correção ou exclusão dos seus dados pelo WhatsApp +55 21 99377-0229.</p></div>
+          <div><h2 className="text-xl font-black text-[#163d66]">Cookies</h2><p className="mt-2">Este site não utiliza analytics ou cookies de rastreamento. Caso essa tecnologia seja adicionada no futuro, esta política e o consentimento serão atualizados antes da ativação.</p></div>
+        </section>
+        <p className="mt-12 text-sm text-[#5c7790]">Última atualização: setembro de 2026.</p>
+      </article>
+    </main>
+  );
 }
-
