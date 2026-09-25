@@ -1,4 +1,10 @@
 import type { MetadataRoute } from "next";
-const url = process.env.NEXT_PUBLIC_SITE_URL ?? "https://dra-michelleribeiro.vercel.app";
-export default function sitemap(): MetadataRoute.Sitemap { return [{ url, lastModified: new Date(), changeFrequency: "monthly", priority: 1 }]; }
 
+const siteUrl = "https://dra-michelleribeiro.vercel.app";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    { url: siteUrl + "/", lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
+    { url: siteUrl + "/politica-de-privacidade", lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
+  ];
+}

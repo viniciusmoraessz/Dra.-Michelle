@@ -40,6 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>{/* Meta tag de verificação do Google Search Console aqui */}</head>
       <body className="antialiased">{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": ["Dentist", "LocalBusiness"], name: "LB Odontologia", description: "Clínica odontológica especializada para toda a família em Niterói.", url: "https://dra-michelleribeiro.vercel.app", telephone: "+55 21 99377-0229", sameAs: ["https://www.instagram.com/lb.odontologia_/"], address: { "@type": "PostalAddress", streetAddress: "R. da Conceição, 125 - Sala 608", addressLocality: "Niterói", addressRegion: "RJ", postalCode: "24020-080", addressCountry: "BR" }, medicalSpecialty: ["Orthodontics", "Pediatric", "Endodontics", "Cosmetic", "Implant"], openingHours: "Mo-Fr by appointment" }) }} /></body>
     </html>
   );
